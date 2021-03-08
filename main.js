@@ -2,10 +2,12 @@
 const task = document.querySelector(".task")
 const addtask = document.querySelector(".button")
 const list = document.querySelector(".list")
+const clearall = document.querySelector(".Clear-All")
 
 //Event Listeners
 
 addtask.addEventListener("click", addTodo);
+clearall.addEventListener("click", allclear);
 
 //Functions
 
@@ -23,7 +25,7 @@ function addTodo(Event) {
     /*task.value is the value in the input we will type
     task is the constant we made at the start of the script*/
 
-    newTask.innerText = task.value;           //why if v is capital in value,the o/p is undefined ?????
+    newTask.innerText = task.value;
     todoDiv.appendChild(newTask);
 
     //add Task to local storage
@@ -69,8 +71,6 @@ function check(e) {                                      //checking task
         let todo = item.parentElement;
         todo.classList.toggle("completed")
     }
-
-
 }
 
 function clear(e) {                                      //delete tasks 
