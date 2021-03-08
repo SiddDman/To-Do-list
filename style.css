@@ -1,0 +1,9 @@
+.fa-check-square,
+.fa-trash-alt{
+    pointer-events: none;
+}
+
+.completed{
+    text-decoration: line-through;
+    opacity: 1;
+}
