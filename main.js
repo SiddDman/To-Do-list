@@ -21,6 +21,7 @@ function addTodo(Event) {
     //create li
 
     const newTask = document.createElement("li")
+    newTask.classList.add("tasklist")
 
     /*task.value is the value in the input we will type
     task is the constant we made at the start of the script*/
@@ -80,4 +81,10 @@ function clear(e) {                                      //delete tasks
         todo.remove();
     }
 }
+
+function allclear(e){
+    let item = e.target
+        let x=document.querySelector(".list")
+        x.innerHTML="";
+    }
 
