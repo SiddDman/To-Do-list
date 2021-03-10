@@ -55,7 +55,7 @@ function addTodo(Event) {
 
 
 function saveLocalTasks(save) {
-    //checking if a task already exists in storage
+    //checking if a task already exists in storage;st=savetasks
     let st;
     if (localStorage.getItem("st") === null) {
         st = [];
@@ -86,5 +86,6 @@ function allclear(e){
     let item = e.target
         let x=document.querySelector(".list")
         x.innerHTML="";
-    }
+        localStorage.clear()
+}
 
