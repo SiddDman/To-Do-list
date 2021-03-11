@@ -8,6 +8,12 @@ const clearall = document.querySelector(".Clear-All")
 document.addEventListener("DOMContentLoaded", loadTasks);
 addtask.addEventListener("click", addTodo);
 clearall.addEventListener("click", allclear);
+task.addEventListener("keydown", function (e) {
+    if (e.keyCode === 13) {
+        addTodo(Event)
+    }
+}
+);
 
 //Functions
 /*this function is not displaying elements from local storage but is adding an li element with no text everytime it is refreshed.
