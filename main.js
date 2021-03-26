@@ -85,6 +85,7 @@ function check(e) {                                      //checking task
     if (item.classList[0] === "complete") {
         let todo = item.parentElement;
         todo.classList.toggle("completed")
+        
     }
 }
 
