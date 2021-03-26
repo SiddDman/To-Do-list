@@ -160,3 +160,5 @@ function rlt(task) {          //rlt=remove local tasks
     localStorage.setItem("st", JSON.stringify(st));
 
 }
+
+//working in new pc
