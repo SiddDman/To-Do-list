@@ -158,6 +158,5 @@ function rlt(task) {          //rlt=remove local tasks
     const taskIndex = task.classList[0].innerText;
     st.splice(st.indexOf(taskIndex), 1);
     localStorage.setItem("st", JSON.stringify(st));
-
 }
 
