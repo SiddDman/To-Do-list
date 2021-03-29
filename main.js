@@ -16,15 +16,6 @@ task.addEventListener("keydown", function (e) {
 );
 
 //Functions
-/*this function is not displaying elements from local storage but is adding an li element with no text everytime it is refreshed.
-
-window.onload = function () {
-    if (JSON.parse(localStorage.getItem("st")) != null){
-        st = JSON.parse(localStorage.getItem("st"));
-        addTodo(Event);
-    }
-}
-*/
 
 function addTodo(Event) {
 
@@ -85,7 +76,6 @@ function check(e) {                                      //checking task
     if (item.classList[0] === "complete") {
         let todo = item.parentElement;
         todo.classList.toggle("completed")
-        
     }
 }
 
@@ -93,8 +83,21 @@ function clear(e) {                                      //delete tasks
     let item = e.target
     if (item.classList[0] === "trash") {
         let todo = item.parentElement;
+        /*todo.classList.add("fall");
+        if we add class fall here and add transition in css,the item would be deleted first and we wont get our animation.
+        if we erase todo.remove() from here,it will appear like the todo has vanished when we clck the button as I have set the opacity 
+        zero but it will still remain there on inspecting the code.*/
+
+        /*SO ADDING ANIMATION  BEFORE THE FUNCTION IS THE BEST WAY TO PROCEED.*/
+
+        //Animation
+        todo.classList.add("fall")
+        todo.addEventListener("transitionend",function(){
+            todo.remove()
+            
+        })
         rlt(task);
-        todo.remove();
+
     }
 }
 
@@ -104,6 +107,16 @@ function allclear(e) {
     x.innerHTML = "";
     localStorage.clear()
 }
+
+/*this function is not displaying elements from local storage but is adding an li element with no text everytime it is refreshed.
+
+window.onload = function () {
+    if (JSON.parse(localStorage.getItem("st")) != null){
+        st = JSON.parse(localStorage.getItem("st"));
+        addTodo(Event);
+    }
+}
+*/
 
 function loadTasks() {     //saving content and displaying it when popup reloads
     let st;
@@ -145,6 +158,8 @@ function loadTasks() {     //saving content and displaying it when popup reloads
 
         //appending to list
         list.appendChild(todoDiv);
+
+        
     });
 }
 
@@ -159,4 +174,3 @@ function rlt(task) {          //rlt=remove local tasks
     st.splice(st.indexOf(taskIndex), 1);
     localStorage.setItem("st", JSON.stringify(st));
 }
-

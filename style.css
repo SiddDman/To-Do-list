@@ -5,5 +5,106 @@
 
 .completed{
     text-decoration: line-through;
-    opacity: 1;
+    opacity: 0.5;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background-image: linear-gradient(90deg,#00FFFF,	#1E90FF);
+    color: white;
+    font-family: "Poppins",sans-serif;
+    min-height: 100vh;
+} 
+
+h1{
+    font-size: 1.5rem;
+}
+
+h1,
+form{
+    min-height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    padding :1rem;
+    font-size: 2rem;
+    border: none;
+    
+}
+
+form button{
+    color: green;
+    background: honeydew;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+}
+
+form button:hover{
+    background: #00FFFF;
+    color: ivory;
+}
+
+.todoList{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.tasklist{
+    min-width: 30%;
+    list-style: none;
+}
+
+.task{
+    margin:0.5rem;
+    background: whitesmoke;
+    color: black;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-basis: 100px;
+    transition: all 0.5s ease;
+}
+
+.task li{
+    flex:1;
+}
+
+.trash,.complete{
+    background: #00FFFF;
+    color: white;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.complete{
+    background:#32CD32	;
+}
+
+.trash{
+    background: red;
+}
+
+.fall{
+    transform: translateY(8rem) rotateZ(90deg);
+    opacity: 0;
+}
+
+.Clear-All{
+    padding: 1rem;
+    font-size: 1rem;
+    background:red;
+    color: black;
 }
