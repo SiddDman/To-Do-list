@@ -8,12 +8,7 @@ const clearall = document.querySelector(".Clear-All")
 document.addEventListener("DOMContentLoaded", loadTasks);
 addtask.addEventListener("click", addTodo);
 clearall.addEventListener("click", allclear);
-task.addEventListener("keydown", function (e) {
-    if (e.keyCode === 13) {
-        addTodo(Event)
-    }
-}
-);
+
 
 //Functions
 

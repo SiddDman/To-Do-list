@@ -33,23 +33,23 @@ form{
     align-items: center;
 }
 
-form{
-    padding :1rem;
+form input,form button{
+    margin:0px;
+    padding: 0.5rem;
     font-size: 2rem;
     border: none;
-    
+    background: white;
 }
 
 form button{
-    color: green;
-    background: honeydew;
+    color:#18f318;
+    background: white;
     cursor: pointer;
     transition: all 0.3s ease;
-
 }
 
 form button:hover{
-    background: #00FFFF;
+    background:#20d320;
     color: ivory;
 }
 
@@ -60,13 +60,13 @@ form button:hover{
 }
 
 .tasklist{
-    min-width: 30%;
+    min-width: 100%;
     list-style: none;
 }
 
 .task{
     margin:0.5rem;
-    background: whitesmoke;
+    background: white;
     color: black;
     font-size: 1.5rem;
     display: flex;
@@ -87,6 +87,7 @@ form button:hover{
     padding: 1rem;
     cursor: pointer;
     font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
 .complete{
@@ -103,8 +104,13 @@ form button:hover{
 }
 
 .Clear-All{
-    padding: 1rem;
-    font-size: 1rem;
-    background:red;
+    padding: 0.5rem;
+    font-size:1.75rem;
+    background:white;
     color: black;
+    border: none;
+}
+.Clear-All:hover{
+    background: #eb0d0d;
+    color: white;
 }
