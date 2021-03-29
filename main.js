@@ -1,5 +1,5 @@
 //Selectors
-const task = document.querySelector(".task")
+const task = document.querySelector(".taskinput")
 const addtask = document.querySelector(".button")
 const list = document.querySelector(".list")
 const clearall = document.querySelector(".Clear-All")
