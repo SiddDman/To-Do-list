@@ -15,11 +15,12 @@
 }
 
 body{
+    background-color:hsl(192, 82%, 43%) ;
     background-image: linear-gradient(80deg,#00FFFF,#1E90FF);
     color: white;
     font-family: "Poppins",sans-serif;
     min-height: 100vh;
-    max-width: 300vh;
+    max-width: 310vh;
     overflow: scroll;
 } 
 
@@ -32,8 +33,8 @@ body::-webkit-scrollbar{
 h1{
     font-size: 3rem;
     font-family: "Lobster",sans-serif;
-    margin:1.5px;
-
+    margin-top: 1px;
+    margin-bottom: 5px;
 }
 
 h1,
@@ -60,7 +61,7 @@ form button{
     background: white;
     cursor: pointer;
     padding: 8.5px;
-    transition: all 1s ease;
+    transition: all 0.5s ease;
     
 }
 
@@ -153,6 +154,6 @@ form button:hover{
 }
 
 .fall{
-    transform: translateY(8rem) rotateZ(145deg);
+    transform: translateY(8rem) rotateZ(120deg);
     opacity: 0;
 }

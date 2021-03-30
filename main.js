@@ -29,10 +29,9 @@ function addTodo(Event) {
 
     newTask.innerText = task.value;
     todoDiv.appendChild(newTask);
-
     //add Task to local storage
     saveLocalTasks(task.value);
-
+ 
     //adding checkbox
     const checkbox = document.createElement("button");
     checkbox.classList.add("complete")
@@ -66,13 +65,32 @@ function saveLocalTasks(save) {
     localStorage.setItem("st", JSON.stringify(st));
 }
 
+
+
+
 function check(e) {                                      //checking task
     let item = e.target
     if (item.classList[0] === "complete") {
         let todo = item.parentElement;
-        todo.classList.toggle("completed")
+        todo.classList.toggle("completed");
+
+            //Adding boolean to local storage
+            //let x=e.target
+            //sct(x.classList[0]==="complete")
+            //function sct(save){
+            //    let done;
+            //    if (localStorage.getItem("done") === null) {
+            //        done = [];
+            //    } else {
+            //        done = JSON.parse(localStorage.getItem("done"));
+            //    }
+            //    done.push(save);
+            //    localStorage.setItem("done", JSON.stringify(done));
+            // }
+        
     }
 }
+
 
 function clear(e) {                                      //delete tasks 
     let item = e.target
@@ -89,7 +107,7 @@ function clear(e) {                                      //delete tasks
         todo.classList.add("fall")
         todo.addEventListener("transitionend",function(){
             todo.remove()
-            
+           
         })
         rlt(task);
 
@@ -158,6 +176,22 @@ function loadTasks() {     //saving content and displaying it when popup reloads
     });
 }
 
+function lct(){
+    let done;
+    if (localStorage.getItem("done") === null) {
+        done = [];
+    } else {
+        done = JSON.parse(localStorage.getItem("done"));
+    }
+    done.forEach(function (e) {
+        let item = e.target
+        if (item.classList[0] === "complete") {
+            let todo = item.parentElement;
+            todo.classList.toggle("completed");
+    }
+});
+}
+
 function rlt(task) {          //rlt=remove local tasks
     let st;
     if (localStorage.getItem("st") === null) {
@@ -169,3 +203,16 @@ function rlt(task) {          //rlt=remove local tasks
     st.splice(st.indexOf(taskIndex), 1);
     localStorage.setItem("st", JSON.stringify(st));
 }
+
+//trying to remove the tasks/boolean in DONE KEY.
+//function rsct(task){          //rsct=remove saved checked tasks
+//    let done;
+//    if (localStorage.getItem("done") === null) {
+//        done = [];
+//    } else {
+//        done = JSON.parse(localStorage.getItem("done"));
+//    }
+//    const y = task.classList[0].hidden;
+//    done.splice(done.indexOf(y), 1);
+//    localStorage.setItem("done", JSON.stringify(done));
+//}
