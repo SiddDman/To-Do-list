@@ -6,6 +6,7 @@ const clearall = document.querySelector(".Clear-All")
 
 //Event Listeners
 document.addEventListener("DOMContentLoaded", loadTasks);
+document.addEventListener("DOMContentLoaded", lct);
 addtask.addEventListener("click", addTodo);
 clearall.addEventListener("click", allclear);
 
@@ -186,6 +187,52 @@ function loadTasks() {     //saving content and displaying it when popup reloads
         list.appendChild(todoDiv);
 
     });
+}
+
+function lct(){
+    let done;
+        if (localStorage.getItem("done") === null) {
+            done = [];
+        } else {
+            done = JSON.parse(localStorage.getItem("done"));
+        }
+
+        done.forEach(function(tasks){
+        //TODO DIV
+
+        const todoDiv = document.createElement("div")
+        todoDiv.classList.add("tasks")
+        todoDiv.classList.add("completed")
+
+        //create li
+
+        const newTask = document.createElement("li")
+        newTask.classList.add("tasklist")
+
+        /*task.value is the value in the input we will type
+        task is the constant we made at the start of the script*/
+
+        newTask.innerText = tasks;
+        todoDiv.appendChild(newTask);
+
+        //adding checkbox
+        const checkbox = document.createElement("button");
+        checkbox.classList.add("complete")
+        checkbox.innerHTML = '<i class="far fa-check-square"></i>';//why cant we use double quotes here....on using double quotes,we get an error.
+        todoDiv.appendChild(checkbox);
+        checkbox.addEventListener("click", check);
+
+        //adding delete button
+        const trashbtn = document.createElement("button");
+        trashbtn.classList.add("trash")
+        trashbtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
+        todoDiv.appendChild(trashbtn);
+        trashbtn.addEventListener("click", clear);
+
+        //appending to list
+        list.appendChild(todoDiv);
+ 
+        })
 }
 
 
