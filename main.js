@@ -40,6 +40,7 @@ function addTodo(Event) {
     todoDiv.appendChild(checkbox);
     checkbox.addEventListener("click", check);
 
+
     //adding delete button
     const trashbtn = document.createElement("button");
     trashbtn.classList.add("trash")
@@ -73,11 +74,11 @@ function check(e) {                                      //checking task
         tasks.classList.toggle("completed");
         tasks.classList.add("check");
         rlt(tasks);
-       
+
     }
-        const tasks = item.parentElement;
-        sct(tasks.children[0].innerText);
-    function sct(save){
+    const tasks = item.parentElement;
+    sct(tasks.children[0].innerText);
+    function sct(save) {
         let done;
         if (localStorage.getItem("done") === null) {
             done = [];
@@ -86,12 +87,12 @@ function check(e) {                                      //checking task
         }
         done.push(save);
         localStorage.setItem("done", JSON.stringify(done));
-     }
+    }
 
     //Adding boolean to local storage
     //let x=e.target
     //sct(x.classList[0]==="complete")
- 
+
 }
 function clear(e) {                                      //delete tasks 
     const item = e.target
@@ -127,6 +128,7 @@ function rlt(tasks) {          //rlt=remove local tasks
     localStorage.setItem("st", JSON.stringify(st));
 
 }
+
 
 function allclear(e) {
     let item = e.target
@@ -189,15 +191,15 @@ function loadTasks() {     //saving content and displaying it when popup reloads
     });
 }
 
-function lct(){
+function lct() {
     let done;
-        if (localStorage.getItem("done") === null) {
-            done = [];
-        } else {
-            done = JSON.parse(localStorage.getItem("done"));
-        }
+    if (localStorage.getItem("done") === null) {
+        done = [];
+    } else {
+        done = JSON.parse(localStorage.getItem("done"));
+    }
 
-        done.forEach(function(tasks){
+    done.forEach(function (tasks) {
         //TODO DIV
 
         const todoDiv = document.createElement("div")
@@ -231,8 +233,8 @@ function lct(){
 
         //appending to list
         list.appendChild(todoDiv);
- 
-        })
+
+    })
 }
 
 
