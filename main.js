@@ -48,7 +48,6 @@ function addTodo(Event) {
     trashbtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
     todoDiv.appendChild(trashbtn);
     trashbtn.addEventListener("click", clear);
-    trashbtn.addEventListener("click", clear1);
 
     //appending to list
     list.appendChild(todoDiv);
@@ -57,8 +56,10 @@ function addTodo(Event) {
     task.value = "";
 }
 
-function saveLocalTasks(save) {
+function saveLocalTasks(save) {                      //saving task to localstorage(key=st)
+
     //checking if a task already exists in storage;st=savetasks
+
     let st;
     if (localStorage.getItem("st") === null) {
         st = [];
@@ -74,12 +75,16 @@ function check(e) {                                      //checking task
     if (item.classList[0] === "complete") {
         const tasks = item.parentElement;
         tasks.classList.toggle("completed");
-        const trash = tasks.children[2]
-        trash.classList.toggle("check")
+        const trash = tasks.children[2];
+        /*Here I cant toggle the class or else the clear function will not work properly as by toggling,a class is added to the element.Here my 
+        need is to replace class TRASH with CHECK so my if else ladder can run properly.*/ 
+        trash.classList.remove("trash");
+        trash.classList.add("check")
         rlt(tasks);
+        /*rlt(tasks) function here removes the selected task from the st(save tasks) localstorage key and sct(save) adds that task to 
+        localstorage key done which I made to store all checked/completed tasks.*/ 
 
     }
-
     const tasks = item.parentElement;
     sct(tasks.children[0].innerText);
     function sct(save) {
@@ -92,14 +97,20 @@ function check(e) {                                      //checking task
         done.push(save);
         localStorage.setItem("done", JSON.stringify(done));
     }
-
+    //Instead of text,first I tried to assign boolean values to the checked tasks and save boolean values in localstorage but I dropped the idea
+    //because it was too complicated and I couldnt find resources that would help me in this.
     //Adding boolean to local storage
     //let x=e.target
     //sct(x.classList[0]==="complete")
 
 }
+
 function clear(e) {                                      //delete tasks 
     const item = e.target
+
+    /*I am using an if-else ladder to delete tasks from page and localstorage simultaneously.If class of delete/trashbtn is trash,then task
+    is unchecked and is in localstorage key st.if the class is check,then the task is checked andis in localstorage key done.*/ 
+
     if (item.classList[0] === "trash") {
 
         /*todo.classList.add("fall");
@@ -115,25 +126,21 @@ function clear(e) {                                      //delete tasks
             tasks.remove()
         });
 
-        rsct(tasks);
+        rlt(tasks);
 
-    }
-}
-
-function clear1(e) {
-    const item = e.target
-    if (item.classList[0] === "check") {
+    }else if(item.classList[0] === "check") {
         const tasks = item.parentElement;
         tasks.classList.add("fall")
         tasks.addEventListener("transitionend", function () {
             tasks.remove()
         });
-
-        rsct(tasks);
+        rsct(tasks) ;
     }
 }
 
-function rlt(tasks) {          //rlt=remove local tasks
+
+
+function rlt(tasks) {          //rlt=remove local tasks(unchecked)
 
     let st;
     if (localStorage.getItem("st") === null) {
@@ -153,23 +160,22 @@ function rsct(tasks) {          //rsct=remove saved checked tasks
     } else {
         done = JSON.parse(localStorage.getItem("done"));
     }
-    const y = tasks.children[0].innerText;
-    done.splice(done.indexOf(y), 1);
+    const tasksindex = tasks.children[0].innerText;
+    done.splice(done.indexOf(tasksindex), 1);
     localStorage.setItem("done", JSON.stringify(done));
 }
 
 
-function allclear(e) {
+function allclear(e) {          //clears localstorage
     let item = e.target
     let x = document.querySelector(".list")
-    x.innerHTML = "";
+    x.innerHTML = "";       //mice short way that makes html of ul empty so the tasks removed
     localStorage.clear()
 }
 
 
 
 /*this function is not displaying elements from local storage but is adding an li element with no text everytime it is refreshed.
-
 window.onload = function () {
     if (JSON.parse(localStorage.getItem("st")) != null){
         st = JSON.parse(localStorage.getItem("st"));
@@ -236,7 +242,7 @@ function lct() {    //lct=load checked tasks
 
         const todoDiv = document.createElement("div")
         todoDiv.classList.add("tasks")
-        todoDiv.classList.add("completed")
+        todoDiv.classList.add("completed")      //have to add class completed extra or else the task wont be checked on refreshing the page
 
         //create li
 
@@ -256,7 +262,7 @@ function lct() {    //lct=load checked tasks
 
         //adding delete button
         const trashbtn = document.createElement("button");
-        trashbtn.classList.add("trash")
+        trashbtn.classList.add ("check")    //HERE WE WILL ADD CLASS check NOT trash.IF trash IS ADDED,THE if-else ladder WONT WORK
         trashbtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
         todoDiv.appendChild(trashbtn);
         trashbtn.addEventListener("click", clear);

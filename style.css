@@ -56,7 +56,7 @@ form input,form button{
 }
 
 form button{
-    color:#18f318;
+    color:#0fb40f;
     margin-left: 7px;
     background: white;
     cursor: pointer;
@@ -152,8 +152,21 @@ form button:hover{
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
+.check{
+    background:white;
+    color: white;
+    border: none;
+    padding: 1.1rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    justify-items: right;
+    transition: all 1s ease;
+    background: rgb(255, 0, 0);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
 
 .fall{
-    transform: translateY(8rem) rotateZ(50deg);
+    transform: translateY(8rem) rotateZ(90deg);
     opacity: 0;
 }
