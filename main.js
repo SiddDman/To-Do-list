@@ -41,12 +41,14 @@ function addTodo(Event) {
     checkbox.addEventListener("click", check);
 
 
+
     //adding delete button
     const trashbtn = document.createElement("button");
     trashbtn.classList.add("trash")
     trashbtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
     todoDiv.appendChild(trashbtn);
     trashbtn.addEventListener("click", clear);
+    trashbtn.addEventListener("click", clear1);
 
     //appending to list
     list.appendChild(todoDiv);
@@ -72,10 +74,12 @@ function check(e) {                                      //checking task
     if (item.classList[0] === "complete") {
         const tasks = item.parentElement;
         tasks.classList.toggle("completed");
-        tasks.classList.add("check");
+        const trash=tasks.children[2]
+        trash.classList.toggle("check")
         rlt(tasks);
 
     }
+
     const tasks = item.parentElement;
     sct(tasks.children[0].innerText);
     function sct(save) {
@@ -109,14 +113,28 @@ function clear(e) {                                      //delete tasks
         tasks.classList.add("fall")
         tasks.addEventListener("transitionend", function () {
             tasks.remove()
-        })
+        });
 
-        rlt(tasks);
+       rsct(tasks); 
 
+    } 
+}
+
+function clear1(e){
+    const item = e.target
+    if (item.classList[0] === "check") {
+        const tasks = item.parentElement;
+        tasks.classList.add("fall")
+        tasks.addEventListener("transitionend", function () {
+            tasks.remove()
+        });
+
+        rsct(tasks);
     }
 }
 
 function rlt(tasks) {          //rlt=remove local tasks
+
     let st;
     if (localStorage.getItem("st") === null) {
         st = [];
@@ -126,7 +144,18 @@ function rlt(tasks) {          //rlt=remove local tasks
     const tasksindex = tasks.children[0].innerText;
     st.splice(st.indexOf(tasksindex), 1);
     localStorage.setItem("st", JSON.stringify(st));
+}
 
+function rsct(tasks) {          //rsct=remove saved checked tasks
+    let done;
+    if (localStorage.getItem("done") === null) {
+        done = [];
+    } else {
+        done = JSON.parse(localStorage.getItem("done"));
+    }
+    const y = tasks.children[0].innerText;
+    done.splice(done.indexOf(y), 1);
+    localStorage.setItem("done", JSON.stringify(done));
 }
 
 
@@ -136,6 +165,8 @@ function allclear(e) {
     x.innerHTML = "";
     localStorage.clear()
 }
+
+
 
 /*this function is not displaying elements from local storage but is adding an li element with no text everytime it is refreshed.
 
@@ -191,9 +222,10 @@ function loadTasks() {     //saving content and displaying it when popup reloads
     });
 }
 
-function lct() {
-    let done;
+function lct() {    //lct=load checked tasks    
+    let done;      //saving content and displaying it when popup reloads for checked tasks.
     if (localStorage.getItem("done") === null) {
+
         done = [];
     } else {
         done = JSON.parse(localStorage.getItem("done"));
@@ -211,10 +243,8 @@ function lct() {
         const newTask = document.createElement("li")
         newTask.classList.add("tasklist")
 
-        /*task.value is the value in the input we will type
-        task is the constant we made at the start of the script*/
 
-        newTask.innerText = tasks;
+        newTask.innerText = tasks;  //IMPORTANT- HERE INNER TEXT WILL NOT BE task.value.IT DISPLAYS THE TEXT FROM  tasks.children[0].innerText  
         todoDiv.appendChild(newTask);
 
         //adding checkbox
@@ -237,81 +267,3 @@ function lct() {
     })
 }
 
-
-//const a=localStorage.getItem("checked");
-//if(a){
-//const checks=document.querySelector(".check")
-//    checks.classList.toggle("completed")
-//}
-
-//function lct(){
-//    let f=localStorage.getItem("checked");
-//       f.forEach(function(check){
-//             //TODO DIV
-//
-//    const todoDiv = document.createElement("div")
-//    todoDiv.classList.add("task")
-//    todoDiv.classList.add("completed")
-//
-//    //create li
-//
-//    const newTask = document.createElement("li")
-//    newTask.classList.add("tasklist")
-//
-//    /*task.value is the value in the input we will type
-//    task is the constant we made at the start of the script*/
-//
-//    newTask.innerText = task;
-//    todoDiv.appendChild(newTask);
-//
-//    //adding checkbox
-//    const checkbox = document.createElement("button");
-//    checkbox.classList.add("complete")
-//    checkbox.innerHTML = '<i class="far fa-check-square"></i>';//why cant we use double quotes here....on using double quotes,we get an error.
-//    todoDiv.appendChild(checkbox);
-//    checkbox.addEventListener("click", check);
-//
-//    //adding delete button
-//    const trashbtn = document.createElement("button");
-//    trashbtn.classList.add("trash")
-//    trashbtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
-//    todoDiv.appendChild(trashbtn);
-//    trashbtn.addEventListener("click", clear);
-//
-//    //appending to list
-//    list.appendChild(todoDiv);
-//       })
-//
-//
-//    
-//}
-//function lct(){
-//    let done;
-//    if (localStorage.getItem("done") === null) {
-//        done = [];
-//    } else {
-//        done = JSON.parse(localStorage.getItem("done"));
-//    }
-//    done.forEach(function (e) {
-//        let item = e.target
-//        if (item.classList[0] === "complete") {
-//            let todo = item.parentElement;
-//            todo.classList.toggle("completed");
-//    }
-//});
-//}
-
-
-
-//trying to remove the tasks/boolean in DONE KEY.
-//function rsct(task){          //rsct=remove saved checked tasks
-//    let done;
-//    if (localStorage.getItem("done") === null) {
-//        done = [];
-//    } else {
-//        done = JSON.parse(localStorage.getItem("done"));
-//    }
-//    const y = task.classList[0].hidden;
-//    done.splice(done.indexOf(y), 1);
-//    localStorage.setItem("done", JSON.stringify(done));
-//}
