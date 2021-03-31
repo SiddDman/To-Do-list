@@ -176,7 +176,7 @@ function rsct(tasks) {          //rsct=remove saved checked tasks
 function allclear(e) {          //clears localstorage
     let item = e.target
     let x = document.querySelector(".list")
-    x.innerHTML = "";       //mice short way that makes html of ul empty so the tasks removed
+    x.innerHTML = "";       //nice short way that makes html inside <ul> empty so the tasks removed
     localStorage.clear()
 }
 
