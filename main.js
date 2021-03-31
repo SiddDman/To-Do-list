@@ -74,7 +74,7 @@ function check(e) {                                      //checking task
     if (item.classList[0] === "complete") {
         const tasks = item.parentElement;
         tasks.classList.toggle("completed");
-        const trash=tasks.children[2]
+        const trash = tasks.children[2]
         trash.classList.toggle("check")
         rlt(tasks);
 
@@ -115,12 +115,12 @@ function clear(e) {                                      //delete tasks
             tasks.remove()
         });
 
-       rsct(tasks); 
+        rsct(tasks);
 
-    } 
+    }
 }
 
-function clear1(e){
+function clear1(e) {
     const item = e.target
     if (item.classList[0] === "check") {
         const tasks = item.parentElement;
