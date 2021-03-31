@@ -121,9 +121,9 @@ function clear(e) {                                      //delete tasks
     if (item.classList[0] === "trash") {
 
         /*todo.classList.add("fall");
-        if we add class fall here and add transition in css,the item would be deleted first and we wont get our animation.
-        if we erase todo.remove() from here,it will appear like the todo has vanished when we clck the button as I have set the opacity 
-        zero but it will still remain there on inspecting the code.*/
+        if I add class fall here and add transition in css,the item would be deleted first and I wont get our animation.
+        if I erase todo.remove() from here,then the task will fall as per animation but will not be removed.so I will add animation before
+        todo.remove() so that animation occurs before after which the task is eventually removed.*/
 
         /*SO ADDING ANIMATION  BEFORE THE FUNCTION IS THE BEST WAY TO PROCEED.*/
         const tasks = item.parentElement;
