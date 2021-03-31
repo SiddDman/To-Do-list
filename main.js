@@ -78,9 +78,16 @@ function check(e) {                                      //checking task
         const trash = tasks.children[2];
         /*Here I cant toggle the class or else the clear function will not work properly as by toggling,a class is added to the element.Here my 
         need is to replace class TRASH with CHECK so my if else ladder can run properly.*/ 
+
         trash.classList.remove("trash");
         trash.classList.add("check")
+
+        const box=tasks.children[1];
+        box.classList.remove("complete");
+        box.classList.add("strike")
+
         rlt(tasks);
+
         /*rlt(tasks) function here removes the selected task from the st(save tasks) localstorage key and sct(save) adds that task to 
         localstorage key done which I made to store all checked/completed tasks.*/ 
 
@@ -255,7 +262,7 @@ function lct() {    //lct=load checked tasks
 
         //adding checkbox
         const checkbox = document.createElement("button");
-        checkbox.classList.add("complete")
+        checkbox.classList.add("strike")     //HERE WE WILL ADD CLASS strike NOT complete.
         checkbox.innerHTML = '<i class="far fa-check-square"></i>';//why cant we use double quotes here....on using double quotes,we get an error.
         todoDiv.appendChild(checkbox);
         checkbox.addEventListener("click", check);
