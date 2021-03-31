@@ -15,6 +15,7 @@
 }
 
 body{
+    border:3px solid whitesmoke;
     background-color:hsl(192, 82%, 43%) ;
     background-image: linear-gradient(80deg,#00FFFF,#1E90FF);
     color: white;
@@ -72,6 +73,7 @@ form button:hover{
 
 .Clear-All{
     padding: 0.5rem;
+    margin-right: 4px;
     border-radius: 5px;
     font-size:1.75rem;
     font-weight: lighter;
@@ -100,7 +102,7 @@ form button:hover{
 }
 
 .taskinput{
-    margin: 0;
+    margin-left: 4px;
     font-family: "Comic Sans MS";
     font-size: 1.5rem;
     
