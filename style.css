@@ -129,7 +129,7 @@ form button:hover{
 }
 
 .trash,.complete{
-    background:#00FFFF;
+    background:white;
     color: white;
     border: none;
     padding: 1.1rem;
@@ -141,19 +141,19 @@ form button:hover{
 
 .complete{
     background:#32CD32	;
-    margin-right: 0px;
-    margin-left:0px;
+    margin-left: 12.92px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 }
 
 .trash{
+    
     background: rgb(255, 0, 0);
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
 
 .fall{
-    transform: translateY(8rem) rotateZ(120deg);
+    transform: translateY(8rem) rotateZ(50deg);
     opacity: 0;
 }
