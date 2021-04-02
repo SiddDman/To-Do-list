@@ -57,7 +57,7 @@ form input,form button{
 }
 
 form button{
-    color:#0fb40f;
+    color:#2ae02a;
     margin-left: 7px;
     background: white;
     cursor: pointer;
@@ -67,7 +67,7 @@ form button{
 }
 
 form button:hover{
-    background:#20d320;
+    background:#0ff50f;
     color:white;
 }
 
@@ -142,7 +142,7 @@ form button:hover{
 }
 
 .complete{
-    background:#32CD32	;
+    background:#28ee28	;
     margin-left: 12.92px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
