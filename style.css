@@ -154,7 +154,7 @@ form button:hover{
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
-.check{
+.trash-check{
     background:white;
     color: white;
     border: none;

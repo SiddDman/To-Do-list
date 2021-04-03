@@ -80,7 +80,7 @@ function check(e) {                                      //checking task
         need is to replace class TRASH with CHECK so my if else ladder can run properly.*/ 
 
         trash.classList.remove("trash");
-        trash.classList.add("check")
+        trash.classList.add("trash-check")
 
         const box=tasks.children[1];
         box.classList.remove("complete");
@@ -135,7 +135,7 @@ function clear(e) {                                      //delete tasks
 
         rlt(tasks);
 
-    }else if(item.classList[0] === "check") {
+    }else if(item.classList[0] === "trash-check") {
         const tasks = item.parentElement;
         tasks.classList.add("fall")
         tasks.addEventListener("transitionend", function () {
@@ -269,7 +269,7 @@ function lct() {    //lct=load checked tasks
 
         //adding delete button
         const trashbtn = document.createElement("button");
-        trashbtn.classList.add ("check")    //HERE WE WILL ADD CLASS check NOT trash.IF trash IS ADDED,THE if-else ladder WONT WORK
+        trashbtn.classList.add ("trash-check")    //HERE WE WILL ADD CLASS check NOT trash.IF trash IS ADDED,THE if-else ladder WONT WORK
         trashbtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
         todoDiv.appendChild(trashbtn);
         trashbtn.addEventListener("click", clear);
