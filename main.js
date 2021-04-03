@@ -116,7 +116,7 @@ function clear(e) {                                      //delete tasks
     const item = e.target
 
     /*I am using an if-else ladder to delete tasks from page and localstorage simultaneously.If class of delete/trashbtn is trash,then task
-    is unchecked and is in localstorage key st.if the class is check,then the task is checked andis in localstorage key done.*/ 
+    is unchecked and is in localstorage key st.if the class is check,then the task is checked and is in localstorage key done.*/ 
 
     if (item.classList[0] === "trash") {
 
