@@ -9,7 +9,16 @@ document.addEventListener("DOMContentLoaded", loadTasks);
 document.addEventListener("DOMContentLoaded", lct);
 addtask.addEventListener("click", addTodo);
 clearall.addEventListener("click", allclear);
-
+/*THIS IS WEIRD.SOMETIMES DUE TO THIS FUNCTION,THE TASK I ENTER AND AN EMPTY TASK IS ADDED WITH THE INPUTED TASK WHICH IS CAUSING AN ERROR
+SOMETIMES AND SOMETIMES IT WORKS AS I WANT IT TO OUTPUTING ONLY THE INPUTED TASK.
+BUT AFTER COMMENTING OUT THE THIS FUNCTION,THE CODE FUNCTIONS PROPERLY WHICH IS WEIRD.
+WHY IS THE CODE WORKING IF I REMOVE/COMMENT OUT THIS FUNCTION????????????????
+I DONT KNOW IF THIS IS A PROBLEM IN MY PC OR WITH THE CODE?
+taskinput.addEventListener("keydown", function (e) {
+    if (e.keyCode === 13) {
+        addTodo(Event)
+    }
+});*/
 
 //Functions
 
