@@ -23,6 +23,11 @@ taskinput.addEventListener("keydown", function (e) {
 //Functions
 
 function addTodo(Event) {
+    /*This function can prevent tasks from being added if input fld is empty.I havent tested it properly,but it may work.
+    if(task.value.length==0){
+        return false;
+    }else{
+    */ 
 
     //TODO DIV
 
@@ -64,7 +69,7 @@ function addTodo(Event) {
     //clear task input ie after pressing add button,text in input fld. will be cleared
     task.value = "";
 }
-
+}
 function saveLocalTasks(save) {                      //saving task to localstorage(key=st)
 
     //checking if a task already exists in storage;st=savetasks
