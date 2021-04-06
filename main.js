@@ -1,19 +1,23 @@
 //Selectors
+
 const task = document.querySelector(".taskinput")
 const addtask = document.querySelector(".button")
 const list = document.querySelector(".list")
 const clearall = document.querySelector(".Clear-All")
 
 //Event Listeners
+
 document.addEventListener("DOMContentLoaded", loadTasks);
 document.addEventListener("DOMContentLoaded", lct);
 addtask.addEventListener("click", addTodo);
 clearall.addEventListener("click", allclear);
+
 /*THIS IS WEIRD.SOMETIMES DUE TO THIS FUNCTION,THE TASK I ENTER AND AN EMPTY TASK IS ADDED WITH THE INPUTED TASK WHICH IS CAUSING AN ERROR
 SOMETIMES AND SOMETIMES IT WORKS AS I WANT IT TO OUTPUTING ONLY THE INPUTED TASK.
 BUT AFTER COMMENTING OUT THE THIS FUNCTION,THE CODE FUNCTIONS PROPERLY WHICH IS WEIRD.
 WHY IS THE CODE WORKING IF I REMOVE/COMMENT OUT THIS FUNCTION????????????????
 I DONT KNOW IF THIS IS A PROBLEM IN MY PC OR WITH THE CODE?
+
 taskinput.addEventListener("keydown", function (e) {
     if (e.keyCode === 13) {
         addTodo(Event)
@@ -23,7 +27,8 @@ taskinput.addEventListener("keydown", function (e) {
 //Functions
 
 function addTodo(Event) {
-    //This function can prevent tasks from being added if input fld is empty.I havent tested it properly,but it may work.
+    //This function can prevent tasks from being added if input fld is empty.I havent tested it properly,but it MAY work.
+
     if (task.value.length == 0) {
         return false;
     } else {
@@ -70,6 +75,7 @@ function addTodo(Event) {
         task.value = "";
     }
 }
+
 function saveLocalTasks(save) {                      //saving task to localstorage(key=st)
 
     //checking if a task already exists in storage;st=savetasks
@@ -106,6 +112,7 @@ function check(e) {                                      //checking task
         localstorage key done which I made to store all checked/completed tasks.*/
 
     }
+
     const tasks = item.parentElement;
     sct(tasks.children[0].innerText);
     function sct(save) {
@@ -158,8 +165,6 @@ function clear(e) {                                      //delete tasks
         rsct(tasks);
     }
 }
-
-
 
 function rlt(tasks) {          //rlt=remove local tasks(unchecked)
 
