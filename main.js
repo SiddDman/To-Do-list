@@ -23,11 +23,11 @@ taskinput.addEventListener("keydown", function (e) {
 //Functions
 
 function addTodo(Event) {
-    /*This function can prevent tasks from being added if input fld is empty.I havent tested it properly,but it may work.
+    //This function can prevent tasks from being added if input fld is empty.I havent tested it properly,but it may work.
     if(task.value.length==0){
         return false;
-    }else{
-    */ 
+    }else{                                      
+    
 
     //TODO DIV
 
