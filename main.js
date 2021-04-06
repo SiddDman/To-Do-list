@@ -24,51 +24,51 @@ taskinput.addEventListener("keydown", function (e) {
 
 function addTodo(Event) {
     //This function can prevent tasks from being added if input fld is empty.I havent tested it properly,but it may work.
-    if(task.value.length==0){
+    if (task.value.length == 0) {
         return false;
-    }else{                                      
-    
-
-    //TODO DIV
-
-    const todoDiv = document.createElement("div")
-    todoDiv.classList.add("tasks")
-
-    //create li
-
-    const newTask = document.createElement("li")
-    newTask.classList.add("tasklist")
-
-    /*task.value is the value in the input we will type
-    task is the constant we made at the start of the script*/
-
-    newTask.innerText = task.value;
-    todoDiv.appendChild(newTask);
-    //add Task to local storage
-    saveLocalTasks(task.value);
-
-    //adding checkbox
-    const checkbox = document.createElement("button");
-    checkbox.classList.add("complete")
-    checkbox.innerHTML = '<i class="far fa-check-square"></i>';//why cant we use double quotes here....on using double quotes,we get an error.
-    todoDiv.appendChild(checkbox);
-    checkbox.addEventListener("click", check);
+    } else {
 
 
+        //TODO DIV
 
-    //adding delete button
-    const trashbtn = document.createElement("button");
-    trashbtn.classList.add("trash")
-    trashbtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
-    todoDiv.appendChild(trashbtn);
-    trashbtn.addEventListener("click", clear);
+        const todoDiv = document.createElement("div")
+        todoDiv.classList.add("tasks")
 
-    //appending to list
-    list.appendChild(todoDiv);
+        //create li
 
-    //clear task input ie after pressing add button,text in input fld. will be cleared
-    task.value = "";
-}
+        const newTask = document.createElement("li")
+        newTask.classList.add("tasklist")
+
+        /*task.value is the value in the input we will type
+        task is the constant we made at the start of the script*/
+
+        newTask.innerText = task.value;
+        todoDiv.appendChild(newTask);
+        //add Task to local storage
+        saveLocalTasks(task.value);
+
+        //adding checkbox
+        const checkbox = document.createElement("button");
+        checkbox.classList.add("complete")
+        checkbox.innerHTML = '<i class="far fa-check-square"></i>';//why cant we use double quotes here....on using double quotes,we get an error.
+        todoDiv.appendChild(checkbox);
+        checkbox.addEventListener("click", check);
+
+
+
+        //adding delete button
+        const trashbtn = document.createElement("button");
+        trashbtn.classList.add("trash")
+        trashbtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
+        todoDiv.appendChild(trashbtn);
+        trashbtn.addEventListener("click", clear);
+
+        //appending to list
+        list.appendChild(todoDiv);
+
+        //clear task input ie after pressing add button,text in input fld. will be cleared
+        task.value = "";
+    }
 }
 function saveLocalTasks(save) {                      //saving task to localstorage(key=st)
 
@@ -91,19 +91,19 @@ function check(e) {                                      //checking task
         tasks.classList.toggle("completed");
         const trash = tasks.children[2];
         /*Here I cant toggle the class or else the clear function will not work properly as by toggling,a class is added to the element.Here my 
-        need is to replace class TRASH with CHECK so my if else ladder can run properly.*/ 
+        need is to replace class TRASH with CHECK so my if else ladder can run properly.*/
 
         trash.classList.remove("trash");
         trash.classList.add("trash-check")
 
-        const box=tasks.children[1];
+        const box = tasks.children[1];
         box.classList.remove("complete");
         box.classList.add("strike")
 
         rlt(tasks);
 
         /*rlt(tasks) function here removes the selected task from the st(save tasks) localstorage key and sct(save) adds that task to 
-        localstorage key done which I made to store all checked/completed tasks.*/ 
+        localstorage key done which I made to store all checked/completed tasks.*/
 
     }
     const tasks = item.parentElement;
@@ -130,7 +130,7 @@ function clear(e) {                                      //delete tasks
     const item = e.target
 
     /*I am using an if-else ladder to delete tasks from page and localstorage simultaneously.If class of delete/trashbtn is trash,then task
-    is unchecked and is in localstorage key st.if the class is check,then the task is checked and is in localstorage key done.*/ 
+    is unchecked and is in localstorage key st.if the class is check,then the task is checked and is in localstorage key done.*/
 
     if (item.classList[0] === "trash") {
 
@@ -149,13 +149,13 @@ function clear(e) {                                      //delete tasks
 
         rlt(tasks);
 
-    }else if(item.classList[0] === "trash-check") {
+    } else if (item.classList[0] === "trash-check") {
         const tasks = item.parentElement;
         tasks.classList.add("fall")
         tasks.addEventListener("transitionend", function () {
             tasks.remove()
         });
-        rsct(tasks) ;
+        rsct(tasks);
     }
 }
 
@@ -283,7 +283,7 @@ function lct() {    //lct=load checked tasks
 
         //adding delete button
         const trashbtn = document.createElement("button");
-        trashbtn.classList.add ("trash-check")    //HERE WE WILL ADD CLASS check NOT trash.IF trash IS ADDED,THE if-else ladder WONT WORK
+        trashbtn.classList.add("trash-check")    //HERE WE WILL ADD CLASS check NOT trash.IF trash IS ADDED,THE if-else ladder WONT WORK
         trashbtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
         todoDiv.appendChild(trashbtn);
         trashbtn.addEventListener("click", clear);
